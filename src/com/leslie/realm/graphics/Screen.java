@@ -30,7 +30,7 @@ public class Screen {
             for(int x=0; x<this.width ; x++){
                 if(xtime <0 | xtime > width) break;
                 pixels[xtime + ytime * width] = 0xFF00FF;
-                throw new ArrayIndexOutOfBoundsException();
+                //throw new ArrayIndexOutOfBoundsException();
             }
         }
     }

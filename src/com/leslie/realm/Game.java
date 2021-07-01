@@ -15,6 +15,8 @@ public class Game extends Canvas implements Runnable {
     public static int height = width / 16 * 9 ;
     public static int scale = 3;
 
+    //title change
+    public static String title = "The Realm of God";
     //thread
     private Thread thread;
     //Game loop
@@ -87,10 +89,13 @@ public class Game extends Canvas implements Runnable {
     public void run(){
         // FOR THE TIMER !!
         long lastTime = System.nanoTime(); // BETTER THAN CURRENT TIME, MORE PRECISE
+        long timer = System.currentTimeMillis();
+
         //convert the nanoseconds into milliseconds
         final double nanoseconds = 1000000000.0 / 60.0;
         double delta = 0;
-
+        int frames = 0;
+        int updates = 0;
 
         while(running){
             //System.out.println("Running....");
@@ -99,10 +104,19 @@ public class Game extends Canvas implements Runnable {
             lastTime = now;
             while(delta >= 1 ){
                 update();
+                updates++;
                 delta--;
             }
             //update();
+            frames++;
             render();
+            if(System.currentTimeMillis() - timer > 1000){
+               timer += 1000;
+               System.out.println(updates + " ups, " + frames + " fps ");
+               frame.setTitle(title + "  | " + updates + " ups, " + frames + " fps " );
+               updates = 0;
+               frames = 0;
+            }
         }
     }
 
@@ -110,7 +124,7 @@ public class Game extends Canvas implements Runnable {
     public static void main (String[] args){
         Game game = new Game();
         game.frame.setResizable(false);
-        game.frame.setTitle("Realm");
+        game.frame.setTitle(title);
         game.frame.add(game);
         game.frame.pack();
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
