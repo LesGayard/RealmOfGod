@@ -85,14 +85,28 @@ public class Game extends Canvas implements Runnable {
     //GAME LOOP RUNNABLE
     @Override
     public void run(){
+        // FOR THE TIMER !!
+        long lastTime = System.nanoTime(); // BETTER THAN CURRENT TIME, MORE PRECISE
+        //convert the nanoseconds into milliseconds
+        final double nanoseconds = 1000000000.0 / 60.0;
+        double delta = 0;
+
+
         while(running){
             //System.out.println("Running....");
-            update();
+            long now = System.nanoTime();
+            delta += (now - lastTime) / nanoseconds;
+            lastTime = now;
+            while(delta >= 1 ){
+                update();
+                delta--;
+            }
+            //update();
             render();
         }
     }
 
-    //The Main Method
+    //The Main Method Maybe in another class !!!!
     public static void main (String[] args){
         Game game = new Game();
         game.frame.setResizable(false);
