@@ -46,7 +46,7 @@ public class Game extends Canvas implements Runnable {
         frame = new JFrame();
         screen = new Screen(this.width, this.height);
         keyboard = new Keyboard();
-        addKeyListener(keyboard);
+        frame.addKeyListener(keyboard);
 
     }
 
@@ -142,6 +142,7 @@ public class Game extends Canvas implements Runnable {
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         game.frame.setLocationRelativeTo(null);
         game.frame.setVisible(true);
+
 
         game.start();
     }
