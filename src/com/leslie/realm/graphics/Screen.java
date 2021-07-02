@@ -1,9 +1,14 @@
 package com.leslie.realm.graphics;
 
+import java.util.Random;
+
 public class Screen {
     private int width;
     private int height;
     public int[] pixels;
+    public int[] tiles = new int[64 * 64];
+    /*Rendering random colors*/
+    private Random random = new Random();
 
     /*Animation*/
     int xtime = 0;
@@ -15,6 +20,10 @@ public class Screen {
         this.width = width;
         this.height = height;
         pixels = new int [width * height];
+
+        for(int i=0; i<tiles.length;i++){
+            tiles[i] = random.nextInt(0xffffff);
+        }
     }
 
     /*Display Image*/
@@ -25,11 +34,13 @@ public class Screen {
 
         for(int y=0; y<this.height ; y++){
             //ArrayBoundException
-            if(ytime <0 | ytime >= height) break;
+            if(y <0 | y >= height) break;
 
             for(int x=0; x<this.width ; x++){
-                if(xtime <0 | xtime > width) break;
-                pixels[xtime + ytime * width] = 0xFF00FF;
+                if(x <0 | x > width) break;
+                //int tileIndex = (x / 16) + (y / 16) * 64;
+                int tileIndex = (x>>4) + (y>>4) * 64;
+                pixels[x + y * width] = tiles[tileIndex];
                 //throw new ArrayIndexOutOfBoundsException();
             }
         }
