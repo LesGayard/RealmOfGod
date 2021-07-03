@@ -7,7 +7,7 @@ public class Screen {
     private int height;
     public int[] pixels;
 
-    public final int MAP_SIZE = 64;
+    public final int MAP_SIZE = 2048;
     public final int MAP_SIZE_MASK = MAP_SIZE - 1;
 
     public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
@@ -48,7 +48,7 @@ public class Screen {
 
                 //int tileIndex = (x / 16) + (y / 16) * 64;
                 int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
-                pixels[x + y * width] = tiles[tileIndex];
+                pixels[x + y * width] = /*tiles[tileIndex];*/Sprite.trees.pixels[(x&63) + (y&63) * Sprite.trees.size];
                 //throw new ArrayIndexOutOfBoundsException();
             }
         }
