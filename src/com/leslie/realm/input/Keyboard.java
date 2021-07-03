@@ -21,10 +21,7 @@ public class Keyboard implements KeyListener {
         keys[e.getKeyCode()] = false;
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
 
-    }
     /*Check if a key is pressed or released*/
     public void update(){
         up = keys[KeyEvent.VK_UP];
@@ -35,9 +32,14 @@ public class Keyboard implements KeyListener {
         System.out.println(up);
         for(int i=0; i<keys.length; i++){
             if(keys[i]){
-                System.out.println("key pressed : " + i);
+                System.out.println("key ID pressed : " + i);
             }
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
     }
 
 

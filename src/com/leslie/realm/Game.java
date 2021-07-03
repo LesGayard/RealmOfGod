@@ -70,15 +70,21 @@ public class Game extends Canvas implements Runnable {
 
     /*MOVE THE TILES */
     int xOffset = 0, yOffset = 0;
+
+
     public void update(){
         keyboard.update();
-        xOffset++;
-        yOffset++;
+        /*Moving the Map/tiles with the keyboard*/
+        if(keyboard.up) yOffset--;
+        if(keyboard.down) yOffset++;
+        if(keyboard.left) xOffset--;
+        if(keyboard.right) xOffset++;
     }
+
     public void render() {
         BufferStrategy bs = getBufferStrategy();
         if(bs == null){
-            createBufferStrategy(2);
+            createBufferStrategy(3);
             return;
         }
         screen.clear();
@@ -86,6 +92,7 @@ public class Game extends Canvas implements Runnable {
         for(int i=0; i<pixels.length; i++){
             pixels[i] = screen.pixels[i];
         }
+
         //the graphic context
         Graphics g = bs.getDrawGraphics();
 
