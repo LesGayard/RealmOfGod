@@ -39,16 +39,17 @@ public class Screen {
 
         for(int y=0; y<this.height ; y++){
             //ArrayBoundException
-            int yy = y + yOffset;
-            //if(yy <0 | yy >= height) break;
+            int yPixels = y + yOffset;
+            if(yPixels <0 | yPixels >= height) continue;
 
             for(int x=0; x<this.width ; x++){
-                int xx = x + xOffset; //the offset
-                //if(xx <0 | xx > width) break;
+                int xPixels = x + xOffset; //the offset
+                if(xPixels <0 | xPixels > width) continue;
 
                 //int tileIndex = (x / 16) + (y / 16) * 64;
-                int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
-                pixels[x + y * width] = /*tiles[tileIndex];*/Sprite.trees.pixels[(x&63) + (y&63) * Sprite.trees.size];
+                //int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
+                /*SET THE OFFSET FOR THE MAP !!*/
+                pixels[xPixels + yPixels * width] = /*tiles[tileIndex];*/Sprite.trees.pixels[(x&63) + (y&63) * Sprite.trees.size];
                 //throw new ArrayIndexOutOfBoundsException();
             }
         }
