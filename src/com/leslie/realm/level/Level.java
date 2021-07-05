@@ -1,14 +1,17 @@
 package com.leslie.realm.level;
 
 import com.leslie.realm.graphics.Screen;
-
+ /*Make it abstract*/
 public class Level {
 
-    private int width;
-    private int height;
-    private int[] tiles;
+    protected int width;
+    protected int height;
+    /*the integers are the ID for the tiles*/
+    protected int[] tiles;
 
     /*CONSTRUCTOR*/
+     public Level(){}
+     /*Generate random level*/
     public Level(int width, int height){
         this.width = width;
         this.height = height;
@@ -26,7 +29,7 @@ public class Level {
     private void loadLevel(String path) {
     }
 
-    private void generateLevel() {}
+    protected void generateLevel() {}
 
     /*generate time cycle*/
     private void time(){}
