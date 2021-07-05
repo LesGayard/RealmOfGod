@@ -41,6 +41,7 @@ public class Level {
 
 
     public void render(int xScroll, int yScroll, Screen screen){
+        screen.setOffset(xScroll,yScroll);
         /*Theses offset variables define the render region*/
         int x0 = xScroll >> 4 ;// equivalent to int x0 = xScroll /16;
         int x1 = (xScroll + screen.width) >> 4;
