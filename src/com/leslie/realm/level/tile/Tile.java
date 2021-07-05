@@ -16,6 +16,7 @@ public class Tile {
     public Sprite sprite;
 
     public static Tile tree = new TreeTile(Sprite.trees);
+    public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 
     /*CONSTRUCTOR*/
     public Tile(Sprite sprite){
@@ -25,6 +26,12 @@ public class Tile {
     /* what information do i need to render the tile */
     public void render (int x, int y, Screen screen){
 
+    }
+
+
+    /*Collision with it or not ?*/
+    public boolean solid(){
+        return false;
     }
 
 

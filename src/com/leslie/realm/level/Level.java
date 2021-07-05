@@ -1,7 +1,9 @@
 package com.leslie.realm.level;
 
 import com.leslie.realm.graphics.Screen;
- /*Make it abstract*/
+import com.leslie.realm.level.tile.Tile;
+
+/*Make it abstract*/
 public class Level {
 
     protected int width;
@@ -38,5 +40,19 @@ public class Level {
     public void update(){}
 
 
-    public void render(int xScroll, int yScroll, Screen sreen){}
+    public void render(int xScroll, int yScroll, Screen screen){
+        /*Theses offset variables define the render region*/
+        int x0 = xScroll >> 4 ;// equivalent to int x0 = xScroll /16;
+        int x1 = (xScroll + screen.width) >> 4;
+        int y0 = yScroll >> 4;
+        int y1 = (yScroll + screen.height) >> 4;
+
+
+    }
+
+    public Tile getTile (int x, int y){
+        /* int x and int y are the  Tile coordonnées */
+        if(tiles[x+y * width] == 0) return Tile.tree;
+        return Tile.voidTile;
+    }
 }

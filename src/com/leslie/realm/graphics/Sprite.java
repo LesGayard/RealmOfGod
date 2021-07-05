@@ -9,8 +9,10 @@ public class Sprite {
 
 
 
-    //THE GRASS TEXTURE -> UNIQUE
+    //THE TREE TEXTURE -> UNIQUE
     public static Sprite trees = new Sprite(146, 0, 0, SpriteSheet.tiles);
+    public static Sprite voidSprite = new Sprite(146, 0x00ff00);
+
     /*Constructor*/
     public Sprite( int size, int x, int y, SpriteSheet sheet){
         this.size = size;
@@ -21,6 +23,19 @@ public class Sprite {
 
         load();
 
+    }
+
+    /*CONSTRUCTOR THAT LOAD WITH COLORS for the void tile -> the void sprite*/
+    public Sprite(int size, int colour){
+        this.size = size;
+        pixels = new int[size * size];
+        setColour(colour);
+    }
+
+    private void setColour(int colour){
+        for(int i=0; i< size * size ; i++){
+            pixels[i] = colour;
+        }
     }
 
     /*GETTERS + SETTERS*/
