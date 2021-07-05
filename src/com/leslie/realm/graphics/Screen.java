@@ -1,5 +1,7 @@
 package com.leslie.realm.graphics;
 
+import com.leslie.realm.level.tile.Tile;
+
 import java.util.Random;
 
 public class Screen {
@@ -54,6 +56,23 @@ public class Screen {
             }
         }
     }
+
+    /* Display the Tile*/
+    public void renderTile(int xPosition, int yPosition, Tile tile){
+        /*rendering individual Tiles*/
+        for(int y=0; y< tile.sprite.size; y++){
+            int yAbsolute = y + yPosition;
+            for(int x=0; x<tile.sprite.size; x++){
+                int xAbsolute = x + xPosition;
+
+                /*EVITER L INFINI */
+                if(xAbsolute < 0 || xAbsolute >= width || yAbsolute > 0 || yAbsolute >= width) break;
+
+                pixels[xAbsolute + yAbsolute * width] = tile.sprite.pixels[x + y * tile.sprite.size];
+            }
+        }
+    }
+
 
     /*Clear Image*/
     public void clear(){

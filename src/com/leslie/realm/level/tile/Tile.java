@@ -15,6 +15,8 @@ public class Tile {
     /*attach a sprite to it */
     public Sprite sprite;
 
+    public static Tile tree = new TreeTile(Sprite.trees);
+
     /*CONSTRUCTOR*/
     public Tile(Sprite sprite){
         this.sprite = sprite;
@@ -23,10 +25,6 @@ public class Tile {
     /* what information do i need to render the tile */
     public void render (int x, int y, Screen screen){
 
-    }
-
-    public boolean solid(){
-        return false;
     }
 
 
