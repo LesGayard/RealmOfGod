@@ -32,13 +32,13 @@ public class Screen {
         pixels = new int [width * height];
 
         for(int i=0; i< MAP_SIZE * MAP_SIZE ;i++){
-            tiles[i] = random.nextInt(0xffffff);
+            tiles[i] = random.nextInt(0x1B87E0);
             tiles[0] = 0;
         }
     }
 
     /*Display Image*/
-    public void render(int xOffset, int yOffset) {
+   public void render(int xOffset, int yOffset) {
         counter++;
         if(counter % 100 == 0) xtime++;
         if(counter % 80 == 0) ytime++;
@@ -58,8 +58,8 @@ public class Screen {
                 pixels[xPixels + yPixels * width] = /*tiles[tileIndex];*/Sprite.trees.pixels[(x&63) + (y&63) * Sprite.trees.size];
                 //throw new ArrayIndexOutOfBoundsException();
             }
-        }
-    }
+       }
+   }
 
     /* Display the Tile*/
     public void renderTile(int xPosition, int yPosition, Tile tile){
@@ -74,8 +74,8 @@ public class Screen {
                 int xAbsolute = x + xPosition;
 
                 /*EVITER L INFINI */
-                if(xAbsolute < 0 || xAbsolute >= width || yAbsolute > 0 || yAbsolute >= width) break;
-
+                if(xAbsolute < -tile.sprite.size || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) break;
+                if(xAbsolute < 0) xAbsolute = 0;
                 pixels[xAbsolute + yAbsolute * width] = tile.sprite.pixels[x + y * tile.sprite.size];
             }
         }

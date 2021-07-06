@@ -2,6 +2,8 @@ package com.leslie.realm;
 
 import com.leslie.realm.graphics.Screen;
 import com.leslie.realm.input.Keyboard;
+import com.leslie.realm.level.Level;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,6 +30,9 @@ public class Game extends Canvas implements Runnable {
     //the Screen
     private Screen screen;
 
+    /* The character should be at one level at a time*/
+    private Level level;
+
     //the image
     private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
@@ -44,7 +49,8 @@ public class Game extends Canvas implements Runnable {
         setPreferredSize(size);
 
         frame = new JFrame();
-        screen = new Screen(this.width, this.height);
+        screen = new Screen(width, height);
+        level = new Level(1024,1024);
         keyboard = new Keyboard();
         frame.addKeyListener(keyboard);
 
@@ -71,7 +77,6 @@ public class Game extends Canvas implements Runnable {
     /*MOVE THE TILES */
     int xOffset = 0, yOffset = 0;
 
-
     public void update(){
         keyboard.update();
         /*Moving the Map/tiles with the keyboard*/
@@ -84,11 +89,13 @@ public class Game extends Canvas implements Runnable {
     public void render() {
         BufferStrategy bs = getBufferStrategy();
         if(bs == null){
-            createBufferStrategy(3);
+            createBufferStrategy(4);
             return;
         }
         screen.clear();
-        screen.render(xOffset,yOffset);
+       //screen.render(xOffset,yOffset);
+        level.render(xOffset,yOffset,screen);
+
         for(int i=0; i<pixels.length; i++){
             pixels[i] = screen.pixels[i];
         }

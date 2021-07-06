@@ -2,7 +2,7 @@ package com.leslie.realm.graphics;
 
 public class Sprite {
 
-    public  int size; //may be 16 or 32 for monsters
+    public  int  size ; //may be 16 or 32 for monsters
     private int x,y;
     public int[] pixels;
     private SpriteSheet sheet;
@@ -11,7 +11,7 @@ public class Sprite {
 
     //THE TREE TEXTURE -> UNIQUE
     public static Sprite trees = new Sprite(146, 0, 0, SpriteSheet.tiles);
-    public static Sprite voidSprite = new Sprite(146, 0x00ff00);
+    public static Sprite voidSprite = new Sprite(146, 0x1B87E0);
 
     /*Constructor*/
     public Sprite( int size, int x, int y, SpriteSheet sheet){
