@@ -1,4 +1,4 @@
-package com.leslie.realm;
+package com.leslie.realm.entity;
 
 import com.leslie.realm.graphics.Screen;
 import com.leslie.realm.level.Level;
