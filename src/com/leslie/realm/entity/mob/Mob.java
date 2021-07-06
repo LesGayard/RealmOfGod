@@ -11,7 +11,23 @@ public abstract class Mob extends Entity {
     protected int direction = 0;
     protected boolean moving = false;
 
-    public void move(){
+    /* controls how pixels move on the screen */
+    public void move( int xMove, int yMove){
+        /* Determine the direction the Mob is moving */
+        if(xMove > 0 ) direction = 1; // East
+        if(xMove < 0 ) direction = 3; // West
+        if(yMove > 0 ) direction = 2; //South
+        if(yMove < 0 ) direction = 0; // North
+
+
+        /* 3 possibilities for x and y : left - right -up - down - no movement */
+        /* -1 / 0 / +1 */
+        if(!collision()){
+            x += xMove;
+            y += yMove;
+        }
+
+
     }
 
     public void update(){}
@@ -20,4 +36,6 @@ public abstract class Mob extends Entity {
     private boolean collision(){
         return false;
     }
+
+    public void render(){}
 }

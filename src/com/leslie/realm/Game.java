@@ -1,5 +1,6 @@
 package com.leslie.realm;
 
+import com.leslie.realm.entity.mob.Player;
 import com.leslie.realm.graphics.Screen;
 import com.leslie.realm.input.Keyboard;
 import com.leslie.realm.level.Level;
@@ -38,6 +39,9 @@ public class Game extends Canvas implements Runnable {
 
     //Keyboard event
     private Keyboard keyboard;
+
+    private Player player;
+
     //converting the image in an array of integers !
     private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 
@@ -53,6 +57,7 @@ public class Game extends Canvas implements Runnable {
         level = new Level(1024,1024);
         keyboard = new Keyboard();
         frame.addKeyListener(keyboard);
+        player = new Player(keyboard);
 
     }
 
@@ -75,15 +80,16 @@ public class Game extends Canvas implements Runnable {
     }
 
     /*MOVE THE TILES */
-    int xOffset = 0, yOffset = 0;
+    /*int xOffset = 0, yOffset = 0;*/
 
     public void update(){
         keyboard.update();
         /*Moving the Map/tiles with the keyboard*/
-        if(keyboard.up) yOffset--;
+       /* if(keyboard.up) yOffset--;
         if(keyboard.down) yOffset++;
         if(keyboard.left) xOffset--;
-        if(keyboard.right) xOffset++;
+        if(keyboard.right) xOffset++;*/
+        player.update();
     }
 
     public void render() {
@@ -94,7 +100,7 @@ public class Game extends Canvas implements Runnable {
         }
         screen.clear();
        //screen.render(xOffset,yOffset);
-        level.render(xOffset,yOffset,screen);
+        level.render(player.x, player.y, screen);
 
         for(int i=0; i<pixels.length; i++){
             pixels[i] = screen.pixels[i];
