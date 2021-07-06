@@ -13,6 +13,7 @@ public class SpriteSheet {
     public int[] pixels;
 
     public static SpriteSheet tiles = new SpriteSheet("resources/textures/FinalRealmOfGodTexture.png",2048);
+    public static SpriteSheet player = new SpriteSheet("resources/player/player.png", 2048);
 
     //CONSTRUCTOR
     public SpriteSheet(String path, int size){

@@ -21,10 +21,14 @@ public class Player extends Mob{
     /* Change the inputs of the player*/
     @Override
     public void update(){
-        if(input.up) y--;
-        if(input.down) y++;
-        if(input.left) x--;
-        if(input.right) x++;
+        int xMove = 0;
+        int yMove = 0;
+        if(input.up) yMove--;
+        if(input.down) yMove++;
+        if(input.left) xMove--;
+        if(input.right) xMove++;
+        if(xMove != 0 || yMove != 0) move(xMove,yMove);
+
     }
 
     @Override
