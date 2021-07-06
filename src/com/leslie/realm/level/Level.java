@@ -44,9 +44,9 @@ public class Level {
         screen.setOffset(xScroll,yScroll);
         /*Theses offset variables define the render region*/
         int x0 = xScroll >>6 ;// equivalent to int x0 = xScroll /16;
-        int x1 = (xScroll + screen.width  + 2) >>6;
+        int x1 = (xScroll + screen.width  /* size of tile added*/ +146) >>6;
         int y0 = yScroll >>6;
-        int y1 = (yScroll + screen.height  +2) >>6;
+        int y1 = (yScroll + screen.height   /* size of tile added*/ +146) >>6;
 
         for(int y=y0; y<y1; y++){
             for(int x=x0 ; x<x1; x++){

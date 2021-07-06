@@ -2,7 +2,7 @@ package com.leslie.realm.graphics;
 
 public class Sprite {
 
-    public  int  size ; //may be 16 or 32 for monsters
+    public  int  size  = 146; //may be 16 or 32 for monsters
     private int x,y;
     public int[] pixels;
     private SpriteSheet sheet;
