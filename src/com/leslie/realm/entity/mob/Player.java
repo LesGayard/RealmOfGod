@@ -35,6 +35,8 @@ public class Player extends Mob{
 
     @Override
     public void render(Screen screen){
+
         screen.renderPlayer(x,y, Sprite.player01);
+
     }
 }

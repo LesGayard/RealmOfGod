@@ -88,15 +88,15 @@ public class Screen {
         yPosition -= this.yOffset;
 
         /*rendering individual Tiles*/
-        for(int y=0; y < 16; y++){
+        for(int y=0; y < Sprite.player01.getSIZE(); y++){
             int yAbsolute = y + yPosition;
-            for(int x=0; x < 16; x++){
+            for(int x=0; x < Sprite.player01.getSIZE(); x++){
                 int xAbsolute = x + xPosition;
 
                 /*EVITER L INFINI */
-                if(xAbsolute < -16 || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) break;
+                if(xAbsolute < -Sprite.player01.getSIZE() || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) break;
                 if(xAbsolute < 0) xAbsolute = 0;
-                pixels[xAbsolute + yAbsolute * width] = sprite.pixels[ x + y * 16];
+                pixels[xAbsolute + yAbsolute * width] = sprite.pixels[ x + y * Sprite.player01.getSIZE()];
             }
         }
 

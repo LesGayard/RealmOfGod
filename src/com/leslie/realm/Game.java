@@ -100,7 +100,10 @@ public class Game extends Canvas implements Runnable {
         }
         screen.clear();
        //screen.render(xOffset,yOffset);
-        level.render(player.x, player.y, screen);
+        /* put the player in the middle of the screen */
+        int xScroll = player.x - screen.width / 2;
+        int yScroll = player.y - screen.height / 2;
+        level.render(xScroll, yScroll, screen);
         player.render(screen);
 
         for(int i=0; i<pixels.length; i++){
