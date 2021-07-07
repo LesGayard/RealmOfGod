@@ -96,7 +96,9 @@ public class Screen {
                 /*EVITER L INFINI */
                 if(xAbsolute < -Sprite.player01.getSIZE() || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) break;
                 if(xAbsolute < 0) xAbsolute = 0;
-                pixels[xAbsolute + yAbsolute * width] = sprite.pixels[ x + y * Sprite.player01.getSIZE()];
+                /* Don't show the background color*/
+                int color = sprite.pixels[ x + y * Sprite.player01.getSIZE()];
+                if (color != 0xffff00ff) pixels[xAbsolute + yAbsolute * width] = color;
             }
         }
 
