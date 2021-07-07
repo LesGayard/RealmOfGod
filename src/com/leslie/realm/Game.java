@@ -101,6 +101,7 @@ public class Game extends Canvas implements Runnable {
         screen.clear();
        //screen.render(xOffset,yOffset);
         level.render(player.x, player.y, screen);
+        player.render(screen);
 
         for(int i=0; i<pixels.length; i++){
             pixels[i] = screen.pixels[i];

@@ -17,7 +17,9 @@ public abstract class Entity {
         /* run 60 times per second */}
 
     /* Empty Entities move*/
-    public void render(Screen screen){}
+    public void render(Screen screen){
+
+    }
 
     /*Removes entity from the level why not a boolean one ??*/
     public void remove(){

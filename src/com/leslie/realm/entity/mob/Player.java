@@ -1,5 +1,7 @@
 package com.leslie.realm.entity.mob;
 
+import com.leslie.realm.graphics.Screen;
+import com.leslie.realm.graphics.Sprite;
 import com.leslie.realm.input.Keyboard;
 
 public class Player extends Mob{
@@ -32,5 +34,7 @@ public class Player extends Mob{
     }
 
     @Override
-    public void render(){}
+    public void render(Screen screen){
+        screen.renderPlayer(x,y, Sprite.player01);
+    }
 }

@@ -1,5 +1,6 @@
 package com.leslie.realm.graphics;
 
+import com.leslie.realm.entity.mob.Player;
 import com.leslie.realm.level.tile.Tile;
 
 import java.util.Random;
@@ -38,7 +39,7 @@ public class Screen {
     }
 
     /*Display Image*/
-   public void render(int xOffset, int yOffset) {
+   /* public void render(int xOffset, int yOffset) {
         counter++;
         if(counter % 100 == 0) xtime++;
         if(counter % 80 == 0) ytime++;
@@ -55,11 +56,11 @@ public class Screen {
                 //int tileIndex = (x / 16) + (y / 16) * 64;
                 //int tileIndex = ((xx >> 4) & MAP_SIZE_MASK) + ((yy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
                 /*SET THE OFFSET FOR THE MAP !!*/
-                pixels[xPixels + yPixels * width] = /*tiles[tileIndex];*/Sprite.trees.pixels[(x&63) + (y&63) * Sprite.trees.size];
+                //pixels[xPixels + yPixels * width] = /*tiles[tileIndex];*/Sprite.trees.pixels[(x&63) + (y&63) * Sprite.trees.size];
                 //throw new ArrayIndexOutOfBoundsException();
-            }
-       }
-   }
+           // }
+      // }
+   //}
 
     /* Display the Tile*/
     public void renderTile(int xPosition, int yPosition, Tile tile){
@@ -79,6 +80,26 @@ public class Screen {
                 pixels[xAbsolute + yAbsolute * width] = tile.sprite.pixels[x + y * tile.sprite.size];
             }
         }
+    }
+
+    public void renderPlayer(int xPosition,int yPosition, Sprite sprite){
+        /* Inverse the Offset movement for the player */
+        xPosition -= this.xOffset;
+        yPosition -= this.yOffset;
+
+        /*rendering individual Tiles*/
+        for(int y=0; y < 16; y++){
+            int yAbsolute = y + yPosition;
+            for(int x=0; x < 16; x++){
+                int xAbsolute = x + xPosition;
+
+                /*EVITER L INFINI */
+                if(xAbsolute < -16 || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) break;
+                if(xAbsolute < 0) xAbsolute = 0;
+                pixels[xAbsolute + yAbsolute * width] = sprite.pixels[ x + y * 16];
+            }
+        }
+
     }
 
     /* SETTER FOR THE TWO OFFSETS*/
