@@ -8,7 +8,7 @@ public abstract class Mob extends Entity {
 
     /*Mob has sprite*/
     protected Sprite sprite;
-    protected int direction = 0;
+    protected int direction;
     protected boolean moving = false;
 
     /* controls how pixels move on the screen */

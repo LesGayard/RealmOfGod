@@ -88,16 +88,16 @@ public class Screen {
         yPosition -= this.yOffset;
 
         /*rendering individual Tiles*/
-        for(int y=0; y < Sprite.player01.getSIZE(); y++){
+        for(int y=0; y < sprite.getSIZE(); y++){
             int yAbsolute = y + yPosition;
-            for(int x=0; x < Sprite.player01.getSIZE(); x++){
+            for(int x=0; x < sprite.getSIZE(); x++){
                 int xAbsolute = x + xPosition;
 
                 /*EVITER L INFINI */
-                if(xAbsolute < -Sprite.player01.getSIZE() || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) break;
+                if(xAbsolute < -sprite.getSIZE() || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) break;
                 if(xAbsolute < 0) xAbsolute = 0;
                 /* Don't show the background color*/
-                int color = sprite.pixels[ x + y * Sprite.player01.getSIZE()];
+                int color = sprite.pixels[ x + y * sprite.getSIZE()];
                 if (color != 0xffff00ff) pixels[xAbsolute + yAbsolute * width] = color;
             }
         }

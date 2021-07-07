@@ -12,7 +12,11 @@ public class Sprite {
     //THE TREE TEXTURE -> UNIQUE
     public static Sprite trees = new Sprite(146, 0, 0, SpriteSheet.tiles);
     public static Sprite voidSprite = new Sprite(146, 0x1B87E0);
-    public static Sprite player01 = new Sprite(16,0,0,SpriteSheet.player);
+    /* The player !! to recreate !!*/
+    public static Sprite playerFront = new Sprite(16,0,0,SpriteSheet.playerFront);
+    public static Sprite playerBack = new Sprite(16,0,0,SpriteSheet.playerBack);
+    public static Sprite playerLeft = new Sprite(16,0,0,SpriteSheet.playerLeft);
+    public static Sprite playerRight = new Sprite(16,0,0,SpriteSheet.playerRight);
 
 
 

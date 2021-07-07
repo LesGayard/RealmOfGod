@@ -7,10 +7,13 @@ import com.leslie.realm.input.Keyboard;
 public class Player extends Mob{
 
     private Keyboard input;
+    /* Create a sprite for the player animation */
+    private Sprite sprite;
 
     /* CONSTRUCTORS */
     public Player(Keyboard input){
         this.input = input;
+
     }
 
     /* created at a specific location */
@@ -35,8 +38,12 @@ public class Player extends Mob{
 
     @Override
     public void render(Screen screen){
+        if(direction == 1) this.sprite = Sprite.playerRight; // East
+        if(direction == 3) this.sprite = Sprite.playerLeft; // West
+        if(direction == 2) this.sprite = Sprite.playerBack; //South
+        if(direction == 0) this.sprite = Sprite.playerFront;
 
-        screen.renderPlayer(x,y, Sprite.player01);
+        screen.renderPlayer(x,y, sprite);
 
     }
 }

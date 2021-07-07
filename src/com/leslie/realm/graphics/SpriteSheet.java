@@ -14,7 +14,10 @@ public class SpriteSheet {
 
     public static SpriteSheet tiles = new SpriteSheet("resources/textures/FinalRealmOfGodTexture.png",2048);
     /* Recréer un perso !!*/
-    public static SpriteSheet player = new SpriteSheet("resources/player/playerfront.png", 64);
+    public static SpriteSheet playerFront = new SpriteSheet("resources/player/playerfront.png", 64);
+    public static SpriteSheet playerBack = new SpriteSheet("resources/player/playerback.png", 64);
+    public static SpriteSheet playerLeft = new SpriteSheet("resources/player/playerleft.png", 64);
+    public static SpriteSheet playerRight = new SpriteSheet("resources/player/playerright.png", 64);
 
     //CONSTRUCTOR
     public SpriteSheet(String path, int size){
