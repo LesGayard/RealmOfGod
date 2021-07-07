@@ -82,7 +82,7 @@ public class Screen {
         }
     }
 
-    public void renderPlayer(int xPosition,int yPosition, Sprite sprite){
+    public void renderPlayer(int xPosition,int yPosition, Sprite sprite, int flip){
         /* Inverse the Offset movement for the player */
         xPosition -= this.xOffset;
         yPosition -= this.yOffset;
@@ -90,15 +90,19 @@ public class Screen {
         /*rendering individual Tiles*/
         for(int y=0; y < sprite.getSIZE(); y++){
             int yAbsolute = y + yPosition;
-            for(int x=0; x < sprite.getSIZE(); x++){
+            int ys = y;
+            if(flip == 2 || flip == 3 ) ys = (sprite.getSIZE()-1) - y;
+                for(int x=0; x < sprite.getSIZE(); x++){
                 int xAbsolute = x + xPosition;
+                int xs = x;
+                if(flip == 1 || flip == 3 ) xs = (sprite.getSIZE()-1) - x;
 
                 /*EVITER L INFINI */
                 if(xAbsolute < -sprite.getSIZE() || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= height) break;
                 if(xAbsolute < 0) xAbsolute = 0;
                 /* Don't show the background color*/
-                int color = sprite.pixels[ x + y * sprite.getSIZE()];
-                if (color != 0xffff00ff) pixels[xAbsolute + yAbsolute * width] = color;
+                int color = sprite.pixels[ xs + ys * sprite.getSIZE()];
+                if (color != 0xffff00ff && color != 0xffffffff) pixels[xAbsolute + yAbsolute * width] = color;
             }
         }
 

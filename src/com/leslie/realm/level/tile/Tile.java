@@ -16,6 +16,10 @@ public class Tile {
     public Sprite sprite;
 
     public static Tile tree = new TreeTile(Sprite.trees);
+    public static Tile funghi = new FunghiTile(Sprite.funghi);
+    public static Tile water = new WaterTile(Sprite.water);
+    public static Tile light = new LightTile(Sprite.light);
+
     public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 
     /*CONSTRUCTOR*/

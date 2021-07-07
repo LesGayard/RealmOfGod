@@ -11,12 +11,26 @@ public class Sprite {
 
     //THE TREE TEXTURE -> UNIQUE
     public static Sprite trees = new Sprite(146, 0, 0, SpriteSheet.tiles);
+    public static Sprite funghi = new Sprite(146, 0, 0, SpriteSheet.tiles);
+    public static Sprite water = new Sprite(146, 0, 0, SpriteSheet.tiles);
+    public static Sprite light = new Sprite(146, 0, 0, SpriteSheet.light);
+
     public static Sprite voidSprite = new Sprite(146, 0x1B87E0);
     /* The player !! to recreate !!*/
     public static Sprite playerFront = new Sprite(16,0,0,SpriteSheet.playerFront);
     public static Sprite playerBack = new Sprite(16,0,0,SpriteSheet.playerBack);
     public static Sprite playerLeft = new Sprite(16,0,0,SpriteSheet.playerLeft);
     public static Sprite playerRight = new Sprite(16,0,0,SpriteSheet.playerRight);
+    /* walking*/
+    public static Sprite playerFront01 = new Sprite(16,0,0,SpriteSheet.playerFront01);
+    public static Sprite playerFront02 = new Sprite(16,0,0,SpriteSheet.playerFront02);
+    public static Sprite playerBack01 = new Sprite(16,0,0,SpriteSheet.playerBack01);
+    public static Sprite playerBack02 = new Sprite(16,0,0,SpriteSheet.playerBack02);
+    public static Sprite playerRight01 = new Sprite(16,0,0,SpriteSheet.playerRight01);
+    public static Sprite playerRight02 = new Sprite(16,0,0,SpriteSheet.playerRight02);
+    public static Sprite playerLeft01 = new Sprite(16,0,0,SpriteSheet.playerLeft01);
+    public static Sprite playerLeft02 = new Sprite(16,0,0,SpriteSheet.playerLeft02);
+
 
 
 

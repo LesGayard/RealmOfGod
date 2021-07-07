@@ -62,6 +62,10 @@ public class Level {
         /* int x and int y are the  Tile coordonnées */
         if(x < 0 || y < 0 || x>= width || y>= height) return Tile.voidTile;
         if(tiles[x+y * width] == 0) return Tile.tree;
+        if(tiles[x+y * width] == 1) return Tile.funghi;
+        if(tiles[x+y * width] == 2) return Tile.water;
+        if(tiles[x+y * width] == 3) return Tile.light;
+
         return Tile.voidTile;
     }
 }
