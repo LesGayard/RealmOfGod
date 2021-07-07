@@ -12,8 +12,8 @@ public class Sprite {
     //THE TREE TEXTURE -> UNIQUE
     public static Sprite trees = new Sprite(146, 0, 0, SpriteSheet.tiles);
     public static Sprite voidSprite = new Sprite(146, 0x1B87E0);
-    public static Sprite player01 = new Sprite(32,0,0,SpriteSheet.player);
-    public static Sprite player02 = new Sprite(32,2,0,SpriteSheet.player);
+    public static Sprite player01 = new Sprite(16,0,0,SpriteSheet.player);
+
 
 
     /*Constructor*/
