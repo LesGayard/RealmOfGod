@@ -12,8 +12,9 @@ public class SpriteSheet {
     public   int size;
     public int[] pixels;
 
-    public static SpriteSheet tiles = new SpriteSheet("resources/textures/FinalRealmOfGodTexture.png",2048);
+    public static SpriteSheet tiles = new SpriteSheet("resources/textures/finalTree.png",2048);
     public static SpriteSheet light = new SpriteSheet("resources/textures/light.png",2048);
+
     /* Recréer un perso !!*/
     public static SpriteSheet playerFront = new SpriteSheet("resources/player/finalFront.png", 64);
     public static SpriteSheet playerBack = new SpriteSheet("resources/player/finalBack.png", 64);

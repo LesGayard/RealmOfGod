@@ -10,7 +10,7 @@ public class Screen {
     public int height;
     public int[] pixels;
 
-    public final int MAP_SIZE = 2048;
+    public final int MAP_SIZE = 1024;
     public final int MAP_SIZE_MASK = MAP_SIZE - 1;
 
     /* For the player movements*/
