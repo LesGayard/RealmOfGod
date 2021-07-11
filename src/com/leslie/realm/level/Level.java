@@ -43,10 +43,10 @@ public class Level {
     public void render(int xScroll, int yScroll, Screen screen){
         screen.setOffset(xScroll,yScroll);
         /*Theses offset variables define the render region*/
-        int x0 = xScroll >>6 ;// equivalent to int x0 = xScroll /16;
-        int x1 = (xScroll + screen.width  /* size of tile added*/ +146) >>6;
-        int y0 = yScroll >>6;
-        int y1 = (yScroll + screen.height   /* size of tile added*/ +146) >>6;
+        int x0 = xScroll >>4 ;// equivalent to int x0 = xScroll /16;
+        int x1 = (xScroll + screen.width  /* size of tile added*/ +16) >>4;
+        int y0 = yScroll >>4;
+        int y1 = (yScroll + screen.height   /* size of tile added*/ +16) >>4;
 
         for(int y=y0; y<y1; y++){
             for(int x=x0 ; x<x1; x++){
@@ -60,8 +60,14 @@ public class Level {
 
     public Tile getTile (int x, int y){
         /* int x and int y are the  Tile coordonnées */
-        if(x < 0 || y < 0 || x>= width || y>= height) return Tile.voidTile;
-        if(tiles[x+y * width] == 0) return Tile.tree;
+        if(x < 0 || y < 0 || x>= width || y>= height) {
+            System.out.println("Void display !!");
+            return Tile.voidTile;
+        }
+        if(tiles[x+y * width] == 0) {
+            System.out.println("Trees display !!");
+            return Tile.tree;
+        }
         if(tiles[x+y * width] == 1) return Tile.funghi;
         if(tiles[x+y * width] == 2) return Tile.water;
         if(tiles[x+y * width] == 3) return Tile.light;

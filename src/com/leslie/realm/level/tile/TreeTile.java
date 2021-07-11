@@ -18,7 +18,7 @@ public class TreeTile extends Tile{
 
     @Override
     public void render (int x, int y, Screen screen){
-        screen.renderTile(x << 6  ,y << 6   ,this);
+        screen.renderTile(x << 4  ,y << 4   ,this);
     }
 
 }

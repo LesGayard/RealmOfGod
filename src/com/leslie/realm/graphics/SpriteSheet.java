@@ -12,7 +12,7 @@ public class SpriteSheet {
     public   int size;
     public int[] pixels;
 
-    public static SpriteSheet tiles = new SpriteSheet("resources/textures/finalTree.png",2048);
+    public static SpriteSheet tiles = new SpriteSheet("resources/textures/spritesheet.png",2048);
     public static SpriteSheet light = new SpriteSheet("resources/textures/light.png",2048);
 
     /* Recréer un perso !!*/
